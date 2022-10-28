@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+:root {
+   --header-color: #42858C;
+   --main-color: #EAE6E5;
+   --footer-color: #000009;
+   --header-height: 80px;
+   --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+   --footer-height: 50px;
+   --font-title: Impact;
+   --font-text: 'Raleway', Verdana, sans-serif;
+}
+
+*,
+::before,
+::after {
+   box-sizing: border-box;
+   font-size: 1.6rem;
+   margin: 0;
+   padding: 0;
+}
+
+
+html {
+   /* Set font-size for REM : 16px * 62.5% = 10px */
+   font-size: 62.5%;
+   scroll-behavior: smooth;
+   /* scroll-padding-top: 60px; */
+}
+
+body {
+   font-family: var(--font-text);
+   /* width: 100%;
+    height: 100vh; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: var(--font-title);
+}
+
+/* HEADER */
+.header {
+   background-color: var(--header-color);
+   height: var(--header-height);
+   display: grid;
+   place-items: center;
+}
+
+/* MAIN */
+.main {
+   background-color: var(--main-color);
+   min-height: var(--main-height);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;  
+   gap: 20px;
+}
+
+h1 {
+   text-transform: uppercase;
+   font-size: 4rem;
+   text-align: center;
+}
+
+.links {
+   display: inline-block;
+   padding: 4px;
+   font-size: 1rem;
+   background-color: white;
+}
+
+/* FOOTER */
+.footer {
+   background-color: var(--footer-color);
+   color: white;
+   display: grid;
+   place-items: center;
+   height: var(--footer-height);
+}
