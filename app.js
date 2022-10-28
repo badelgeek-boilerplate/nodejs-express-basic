@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const router = require('./routes/router');
+require('dotenv').config();
 
-const PORT = 3000;
+// Initializing Express App
 const app = express();
-
 
 // register view engine + Define Views folder
 app.set('view engine', 'ejs');
@@ -21,6 +21,6 @@ app.use((req,res) => {
    res.status(404).render('404');
 })
 
-app.listen(PORT, () => {
-   console.log(`App running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+   console.log(`App running on port ${process.env.PORT} (${process.env.ENV})`);
 });
