@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const router = require('./routes/router');
+const index = require('./routes/index');
+const errors = require('./routes/errors');
 require('dotenv').config();
 
 // Initializing Express App
@@ -13,14 +14,15 @@ app.set('views', './views');
 // Static Files
 app.use(express.static(path.join(__dirname,'public')));
 
+// Body Parser
+app.use(express.urlencoded({ extended: true }));
+
 // Main Router
-app.use('/', router);
+app.use('/', index);
 
 // Handle 404 Errors
-app.use((req,res) => {
-   res.status(404).render('404');
-})
+app.use(errors);
 
 app.listen(process.env.PORT, () => {
-   console.log(`App running on port ${process.env.PORT} (${process.env.ENV})`);
+   console.log(`App running on http://localhost:${process.env.PORT} (${process.env.ENV})`);
 });
